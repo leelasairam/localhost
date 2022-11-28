@@ -6,19 +6,19 @@
         </title>
     </head>
 
-    <body style="font-family:Arial, Helvetica, sans-serif;">
-        <p style="color: purple;margin-bottom:0.8rem;font-weight:900">RUN LOCALHOST ON MOBILE</p>
+    <body style="font-family:Arial, Helvetica, sans-serif;background-color:#222222;color:white">
+        <p style="color: #009EFF;margin-bottom:0.8rem;font-weight:900">RUN LOCALHOST ON MOBILE</p>
         <div style="display: grid;place-items: center;padding:0.5rem;border-style:ridge;">
-            <label for="ip">Ip Address(Ipv4) of laptop/desktop :</label><br/>
-            <input id="ip" name="ip" placeholder="192.888.88.888"/><br/>
+            <label for="ip">IP Address(Ipv4) of laptop/desktop :</label><br/>
+            <input style="height: 30px;" id="ip" name="ip" placeholder="192.888.88.888"/><br/>
             <label for="port">Port number on which server running :</label><br/>
-            <input id="port" name="port" placeholder="3000" /><br/>
-            <button onclick="Localhost()">Run Localhost</button><br/>
+            <input style="height: 30px;" id="port" name="port" placeholder="3000" /><br/>
+            <button style="height: 30px;width:165px;background-color:#009EFF;border:none" onclick="Localhost()">Run Localhost</button><br/>
             
             <div>
-                <b style="color: blue;">Instuctions :</b>
+                <b style="color: yellow;">Instuctions :</b>
                 <ol>
-                    <li>To know ip address of your laptop/desktop, enter <b>ipconfig</b> in command prompt (windows).</li>
+                    <li>To know ip address of your laptop/desktop, enter <code style="background-color:#787A91">ipconfig</code> in command prompt (windows).</li>
                     <li>Make sure both laptop/desktop and mobile connected with same network.</li>
                     <li>Make sure server is currently running on given port.</li>
                 </ol>
@@ -27,7 +27,12 @@
 
         <script>
             function Localhost() {
-                window.location.assign(`http://${document.querySelector("#ip").value}:${document.querySelector("#port").value}`);
+                if(document.querySelector("#ip").value && document.querySelector("#port").value){
+                    window.location.assign(`http://${document.querySelector("#ip").value}:${document.querySelector("#port").value}`);
+                }
+                else{
+                    alert("Please enter valid IP Address and Port");
+                }
               }
         </script>
     </body>
