@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <title>
+            Localhost on mobile
+        </title>
+    </head>
+
+    <body style="font-family:Arial, Helvetica, sans-serif;">
+        <p style="color: purple;margin-bottom:0.8rem;font-weight:900">RUN LOCALHOST ON MOBILE</p>
+        <div style="display: grid;place-items: center;padding:0.5rem;border-style:ridge;">
+            <label for="ip">Ip Address(Ipv4) of laptop/desktop :</label><br/>
+            <input id="ip" name="ip" placeholder="192.888.88.888"/><br/>
+            <label for="port">Port number on which server running :</label><br/>
+            <input id="port" name="port" placeholder="3000" /><br/>
+            <button onclick="Localhost()">Run Localhost</button><br/>
+            
+            <div>
+                <b style="color: blue;">Instuctions :</b>
+                <ol>
+                    <li>To know ip address of your laptop/desktop, enter <b>ipconfig</b> in command prompt (windows).</li>
+                    <li>Make sure both laptop/desktop and mobile connected with same network.</li>
+                    <li>Make sure server is currently running on given port.</li>
+                </ol>
+            </div>
+        </div>
+
+        <script>
+            function Localhost() {
+                window.location.assign(`http://${document.querySelector("#ip").value}:${document.querySelector("#port").value}`);
+              }
+        </script>
+    </body>
+</html>
